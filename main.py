@@ -42,7 +42,7 @@ def analyze_content(content):
             )
             chain = prompt | llm | output_parser
             result = chain.invoke({"code_snippet": content})
-            analysis_results.append(f"Result for '{prompt_text}':\n{result}\n")
+            analysis_results.append(f"\n # Result for '{prompt_text}':\n{result}\n")
         return "\n".join(analysis_results)
     except Exception as e:
         logging.error(f"Error processing content: {str(e)}")
