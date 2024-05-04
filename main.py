@@ -4,8 +4,9 @@ from dotenv import load_dotenv
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 
-# from langchain_google_vertexai import ChatVertexAI
-from langchain_openai import AzureChatOpenAI
+from langchain_google_vertexai import ChatVertexAI
+
+# from langchain_openai import AzureChatOpenAI
 
 # Setup logging
 logging.basicConfig(
@@ -28,8 +29,8 @@ prompts = [
 def analyze_content(content):
     try:
         # Initialize the Google Vertex AI language model
-        # google_llm = ChatVertexAI(model_name="gemini-1.0-pro", cache=False)
-        llm = AzureChatOpenAI(deployment_name="codesageai")
+        llm = ChatVertexAI(model_name="gemini-1.5-pro", cache=False)
+        # llm = AzureChatOpenAI(deployment_name="codesageai")
 
         # Create an output parser
         output_parser = StrOutputParser()
